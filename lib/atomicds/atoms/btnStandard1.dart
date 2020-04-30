@@ -3,8 +3,11 @@ import 'package:flutter/material.dart';
 class BtnStandard1 extends StatelessWidget{
 
   final VoidCallback onPressed;
+  final String text;
+  final Color textColor;
+  final Color color;
 
-  const BtnStandard1({Key key,this.onPressed}):super(key:key);
+  const BtnStandard1({Key key,this.onPressed,this.text,this.textColor,this.color}):super(key:key);
 
   @override
   Widget build(BuildContext context) {
@@ -14,13 +17,13 @@ class BtnStandard1 extends StatelessWidget{
       height: MediaQuery.of(context).size.height*(0.07),
       child: FlatButton(
         onPressed: this.onPressed,
-        color: Color(0xFFe1131d),
-        textColor: Colors.white,
+        color: this.color,
+        textColor: this.textColor,
         disabledColor: Colors.grey,
         disabledTextColor: Colors.black,
         splashColor: Colors.blueAccent,
         shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(20.0)),
-        child: Text("Entrar",textAlign: TextAlign.center),
+        child: Text(this.text,textAlign: TextAlign.center),
       )
     );
   }

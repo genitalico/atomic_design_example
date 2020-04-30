@@ -1,46 +1,44 @@
 import 'package:adexample/atomicds/atoms/textFieldStandard1.dart';
 import 'package:flutter/material.dart';
 
-class EmailPassword extends StatefulWidget{
-
+class EmailPassword extends StatefulWidget {
   _EmailPassword _state;
 
-  EmailPassword({Key key}):super(key:key);
+  EmailPassword({Key key}) : super(key: key);
 
-  void changeColor(){
+  void changeColor() {
     _state.changeColor();
   }
 
   String emailText() => _state.emailText();
+
   String passwordText() => _state.passwordText();
 
   @override
-  _EmailPassword createState() { return _state = _EmailPassword();}
-
+  _EmailPassword createState() {
+    return _state = _EmailPassword();
+  }
 }
 
-
 class _EmailPassword extends State<EmailPassword> {
-
   TextEditingController _emailController;
   TextEditingController _passwordController;
   Color _emailColor = Colors.white;
   FocusNode focusNodeEmail;
 
-
   _EmailPassword();
 
-  void _onTap(){
-    if(_emailColor == Colors.red){
+  void _onTap() {
+    if (_emailColor == Colors.red) {
       setState(() {
         _emailColor = Colors.white;
       });
     }
   }
 
-  void changeColor(){
+  void changeColor() {
     focusNodeEmail.requestFocus();
-    if(_emailColor == Colors.white){
+    if (_emailColor == Colors.white) {
       setState(() {
         _emailColor = Colors.red;
       });
@@ -48,6 +46,7 @@ class _EmailPassword extends State<EmailPassword> {
   }
 
   String emailText() => _emailController.text;
+
   String passwordText() => _passwordController.text;
 
   @override
@@ -57,7 +56,6 @@ class _EmailPassword extends State<EmailPassword> {
     _emailController = TextEditingController();
     _passwordController = TextEditingController();
     focusNodeEmail = FocusNode();
-
   }
 
   @override
@@ -85,7 +83,7 @@ class _EmailPassword extends State<EmailPassword> {
             hintText: "Contraseña",
             prefixIcon: Icons.lock,
             controller: _passwordController,
-            onTab: (){},
+            onTab: () {},
             obscureText: true)
       ],
     );
